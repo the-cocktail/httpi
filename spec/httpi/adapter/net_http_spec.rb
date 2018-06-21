@@ -1,5 +1,6 @@
 require "spec_helper"
 require "integration/support/server"
+require "rack";
 
 describe HTTPI::Adapter::NetHTTP do
 
