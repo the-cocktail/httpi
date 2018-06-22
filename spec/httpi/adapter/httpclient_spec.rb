@@ -142,6 +142,13 @@ describe HTTPI::Adapter::HTTPClient do
 
         adapter.request(:get)
       end
+
+      it 'should set the ssl_version TLSv1_2 if specified' do
+        request.auth.ssl.ssl_version = :TLSv1_2
+        ssl_config.expects(:ssl_version=).with('TLSv1_2')
+
+        adapter.request(:get)
+      end
     end
 
     context "(for SSL client auth with a verify mode of :none with no certs provided)" do

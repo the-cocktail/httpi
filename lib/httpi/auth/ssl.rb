@@ -10,7 +10,8 @@ module HTTPI
 
       VERIFY_MODES = [:none, :peer, :fail_if_no_peer_cert, :client_once]
       CERT_TYPES = [:pem, :der]
-      SSL_VERSIONS = [:TLSv1, :SSLv2, :SSLv3]
+      # Ssl versions permmited
+      SSL_VERSIONS = [:TLSv1_2, :TLSv1_1, :TLSv1, :SSLv3, :SSLv23, :SSLv2]
 
       # Returns whether SSL configuration is present.
       def present?

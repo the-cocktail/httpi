@@ -1,5 +1,6 @@
 require "spec_helper"
 require "integration/support/server"
+require "rack";
 
 describe HTTPI::Adapter::NetHTTP do
 
@@ -225,6 +226,13 @@ __END__
 
       it 'should set the ssl_version if specified' do
         request.auth.ssl.ssl_version = :SSLv3
+        net_http.expects(:ssl_version=).with(request.auth.ssl.ssl_version)
+
+        adapter.request(:get)
+      end
+
+      it 'should set the ssl_version TLSv1_2 if specified' do
+        request.auth.ssl.ssl_version = :TLSv1_2
         net_http.expects(:ssl_version=).with(request.auth.ssl.ssl_version)
 
         adapter.request(:get)

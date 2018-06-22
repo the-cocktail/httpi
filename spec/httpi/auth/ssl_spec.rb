@@ -136,7 +136,7 @@ describe HTTPI::Auth::SSL do
 
   describe "SSL_VERSIONS" do
     it "contains the supported SSL versions" do
-      HTTPI::Auth::SSL::SSL_VERSIONS.should == [:TLSv1, :SSLv2, :SSLv3]
+      HTTPI::Auth::SSL::SSL_VERSIONS.should == [:TLSv1_2, :TLSv1_1, :TLSv1, :SSLv3, :SSLv23, :SSLv2]
     end
   end
 
@@ -161,7 +161,7 @@ describe HTTPI::Auth::SSL do
     it 'raises ArgumentError if the version is unsupported' do
       expect { ssl.ssl_version = :ssl_fail }.
         to raise_error(ArgumentError, "Invalid SSL version :ssl_fail\n" +
-                                      "Please specify one of [:TLSv1, :SSLv2, :SSLv3]")
+                                      "Please specify one of [:TLSv1_2, :TLSv1_1, :TLSv1, :SSLv3, :SSLv23, :SSLv2]")
     end
   end
 

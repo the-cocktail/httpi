@@ -1,3 +1,8 @@
+### 2.1.0 (2018-06-21)
+
+* Feature: Permit TLS 1.2 as SSL_VERSIONS and update tests.
+* Fix: Fix tests net_http_spec.
+
 ### Edge
 
 * Feature: [#80](https://github.com/savonrb/httpi/pull/80) NTLM support.
