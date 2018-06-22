@@ -230,6 +230,13 @@ __END__
 
         adapter.request(:get)
       end
+
+      it 'should set the ssl_version TLSv1_2 if specified' do
+        request.auth.ssl.ssl_version = :TLSv1_2
+        net_http.expects(:ssl_version=).with(request.auth.ssl.ssl_version)
+
+        adapter.request(:get)
+      end
     end
   end
 

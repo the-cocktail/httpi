@@ -266,6 +266,13 @@ unless RUBY_PLATFORM =~ /java/
             adapter.request(:get)
           end
 
+          it 'to 1 when ssl_version is specified as TLSv1_2' do
+            request.auth.ssl.ssl_version = :TLSv1_2
+            curb.expects(:ssl_version=).with(1)
+
+            adapter.request(:get)
+          end
+
           it 'to 2 when ssl_version is specified as SSLv2' do
             request.auth.ssl.ssl_version = :SSLv2
             curb.expects(:ssl_version=).with(2)
